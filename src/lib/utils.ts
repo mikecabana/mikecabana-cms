@@ -1,5 +1,5 @@
 import { clsx, type ClassValue } from 'clsx'
-import type { FieldHook } from 'payload'
+import { FieldHook } from 'payload'
 import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
@@ -29,3 +29,23 @@ export const formatSlug =
 
     return value
   }
+
+export const formatDateTime = (date: string, showTime = false): string => {
+  const d = new Date(date)
+
+  if (showTime) {
+    return new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+    }).format(d)
+  }
+
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  }).format(d)
+}

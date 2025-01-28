@@ -1,4 +1,4 @@
-import { isAdminFieldLevel } from '@/utils/access'
+import { isAdminFieldLevel } from '@/lib/access'
 import type { CollectionConfig } from 'payload'
 
 export const Users: CollectionConfig = {

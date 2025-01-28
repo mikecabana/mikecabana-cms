@@ -1,5 +1,9 @@
 import { Metadata } from 'next'
 
+import { Footer } from '@/components/footer'
+import { Nav } from '@/components/nav'
+import { ThemeProvider } from '@/components/theme-provider'
+import { GeistSans } from 'geist/font/sans'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -9,9 +13,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className="bg-mc text-mc-50 flex justify-center">
-        <div className="w-full max-w-2xl px-2">{children}</div>
+    <html lang="en" className={GeistSans.className}>
+      <body className="flex flex-col items-center min-h-screen">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <div className="flex-grow flex flex-col w-full max-w-2xl">
+            <header className="w-full">
+              <Nav />
+            </header>
+            <div className="flex-grow px-2">{children}</div>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   )

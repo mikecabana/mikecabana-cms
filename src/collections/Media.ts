@@ -1,4 +1,4 @@
-import { isAdminOrEditor, isLoggedIn } from '@/utils/access'
+import { isAdminOrEditor, isLoggedIn } from '@/lib/access'
 import type { CollectionConfig } from 'payload'
 
 export const Media: CollectionConfig = {

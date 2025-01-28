@@ -1,7 +1,7 @@
 import { RefreshRouteOnSave } from '@/components/refresh-route-on-save'
-import { getPayload } from 'payload'
-import config from '@payload-config'
-import { draftMode } from 'next/headers'
+import RichText from '@/components/rich-text'
+import { getPayload } from '@/lib/payload'
+import { formatDateTime } from '@/lib/utils'
 
 type PostPageProps = {
   params: Promise<{ slug: string | null }>
@@ -14,23 +14,16 @@ export default async function PostPage({ params }: PostPageProps) {
     return <p>No post found</p>
   }
 
-  const payload = await getPayload({ config })
-
-  const { isEnabled: draft } = await draftMode()
+  const payload = await getPayload()
 
   const res = await payload.find({
     collection: 'posts',
-    draft,
-    limit: 1,
-    overrideAccess: draft,
     where: {
       slug: {
         equals: slug,
       },
     },
   })
-
-  console.log(res)
 
   if (!res) {
     return <p>No post found</p>
@@ -45,9 +38,12 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <>
       <RefreshRouteOnSave />
-      <h1>{post.title}</h1>
-      <h2>{post.updatedAt}</h2>
-      <div>{JSON.stringify(post.body)}</div>
+      <div className="mb-8">
+        <h1 className="text-2xl">{post.title}</h1>
+        <p className="text-sm opacity-75">{formatDateTime(post.createdAt)}</p>
+      </div>
+      <RichText data={post.content} />
+      {/* <pre>{JSON.stringify(post.content, null, 2)}</pre> */}
     </>
   )
 }

@@ -53,3 +53,8 @@ export const isAdminOrEditor: Access = ({ req: { user } }) => {
   // Reject everyone else
   return false
 }
+
+export const isAnonymous: Access = ({ req: { user } }) => {
+  // Return true if user is logged in, false if not
+  return true
+}

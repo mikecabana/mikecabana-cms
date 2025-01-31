@@ -5,11 +5,11 @@ import { Socials } from './socials'
 export function Hero() {
   return (
     <>
-      <div className="flex flex-row-reverse gap-8 mb-12">
+      <div className="flex flex-col md:flex-row-reverse gap-8 mb-12 items-center">
         <div className="flex-grow text-right">
           <SiteTitle />
           {/* <h1 className="font-bold text-4xl mb-6">Mike Cabana</h1> */}
-          <p className="text-2xl font-bold opacity-90 mb-8">
+          <p className="md:text-2xl font-bold opacity-90 mb-8">
             Software developer, coffee lover, dog daddy, AI wrangler.
           </p>
           <Socials />

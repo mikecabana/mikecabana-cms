@@ -25,7 +25,7 @@ export function Socials() {
     },
   ]
   return (
-    <div>
+    <div className="flex items-center gap-4 w-full justify-center md:justify-end">
       {items.map((item, i) => (
         <Button key={i} variant="ghost" asChild>
           <a href={item.route} target="_blank" rel="noopener noreferrer">

@@ -1,6 +1,7 @@
 import CardAnimated from '@/components/card-animated'
 import { Guestbook } from '@/components/guestbook'
 import { Hero } from '@/components/hero'
+import { Projects } from '@/components/projects'
 import { getPayload } from '@/lib/payload'
 import { formatDateTime } from '@/lib/utils'
 import { cookies as nextCookies } from 'next/headers'
@@ -23,9 +24,14 @@ export default async function HomePage() {
   })
   return (
     <>
-      <Hero />
       <main>
-        <div className="grid grid-cols-2 gap-4 mb-12">
+        {/* Hero */}
+        <section id="hero">
+          <Hero />
+        </section>
+
+        {/* Posts */}
+        <section id="posts" className="grid grid-cols-2 gap-4 mb-12">
           {posts.docs.map((post, i) => (
             <a href={`/posts/${post.slug}`} key={i}>
               <CardAnimated gradientIndex={i}>
@@ -34,11 +40,17 @@ export default async function HomePage() {
               </CardAnimated>
             </a>
           ))}
-        </div>
+        </section>
 
-        <div className="flex justify-center">
+        {/* Projects */}
+        <section id="projects" className="mb-12">
+          <Projects />
+        </section>
+
+        {/* Guestbook */}
+        <section id="guestbook" className="flex justify-center">
           <Guestbook signed={!!guestbookSigned} />
-        </div>
+        </section>
       </main>
     </>
   )

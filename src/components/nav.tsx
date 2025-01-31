@@ -7,10 +7,10 @@ export function Nav() {
       label: 'Home',
       route: '/',
     },
-    // {
-    //   label: 'Projects',
-    //   route: '/#projects',
-    // },
+    {
+      label: 'Projects',
+      route: '/#projects',
+    },
     {
       label: 'Posts',
       route: '/posts',

@@ -2,6 +2,7 @@ import CardAnimated from '@/components/card-animated'
 import { Guestbook } from '@/components/guestbook'
 import { Hero } from '@/components/hero'
 import { Projects } from '@/components/projects'
+import { SpotifyNPO } from '@/components/spotify-npo'
 import { getPayload } from '@/lib/payload'
 import { formatDateTime } from '@/lib/utils'
 import { cookies as nextCookies } from 'next/headers'
@@ -28,6 +29,10 @@ export default async function HomePage() {
         {/* Hero */}
         <section id="hero">
           <Hero />
+        </section>
+
+        <section id="spotify" className="scale-75">
+          <SpotifyNPO />
         </section>
 
         {/* Posts */}

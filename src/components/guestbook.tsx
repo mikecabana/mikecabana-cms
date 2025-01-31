@@ -62,9 +62,12 @@ export function Guestbook({ signed = false }: { signed: boolean }) {
             {signed ? 'Signed!' : pending ? 'Submitting...' : state.success ? 'Signed!' : 'Submit'}
           </Button>
         </div>
-        <div className="text-center">
-          <NextLink className="text-sm hover:underline" href="/guests">
-            See who else signed the guestbook
+        <div className="text-center max-w-40 mx-auto">
+          <NextLink className="text-sm hover:underline group" href="/guests">
+            See who else signed the guestbook{' '}
+            <span className="inline-block transform transition-all duration-300 group-hover:translate-x-2 ">
+              👉🏻
+            </span>
           </NextLink>
         </div>
       </form>

@@ -31,7 +31,7 @@ export default async function HomePage() {
           <Hero />
         </section>
 
-        <section id="spotify" className="scale-75">
+        <section id="spotify">
           <SpotifyNPO />
         </section>
 

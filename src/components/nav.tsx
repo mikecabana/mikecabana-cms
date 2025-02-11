@@ -37,7 +37,12 @@ export function Nav() {
       <ul className="flex items-center gap-6 font-medium">
         {items.map((item, i) => (
           <li key={i}>
-            <NextLink href={item.route}>{item.label}</NextLink>
+            <NextLink
+              href={item.route}
+              className="hover:text-accent transition-colors duration-100"
+            >
+              {item.label}
+            </NextLink>
           </li>
         ))}
       </ul>

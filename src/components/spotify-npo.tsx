@@ -1,14 +1,21 @@
 export function SpotifyNPO() {
   return (
-    <div className="flex items-center overflow-hidden h-[90px] rounded-xl">
-      <div className="flex-grow -mx-3 overflow-hidden rounded-xl h-[115px] flex items-stretch justify-center">
+    <>
+      <div className="h-[5.5rem] flex items-stretch justify-center overflow-hidden rounded-xl">
         <iframe
           className="flex-grow"
-          src={`https://spotify-now-playing-overlay.vercel.app/spotify?id=${encodeURIComponent(
-            'mikeycabana@gmail.com',
-          )}&size=sm`}
+          src="https://www.snpo.live/bWlrZXljYWJhbmFAZ21haWwuY29t?id=bWlrZXljYWJhbmFAZ21haWwuY29t&color=%2327272a&rounded=true&size=sm"
         ></iframe>
       </div>
-    </div>
+      <div className="text-center">
+        <a
+          href="https://snpo.live"
+          target="_blank"
+          className="text-xs font-light hover:underline text-center opacity-50"
+        >
+          Put this on your website
+        </a>
+      </div>
+    </>
   )
 }

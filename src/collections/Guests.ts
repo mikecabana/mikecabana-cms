@@ -1,5 +1,23 @@
 import { isAdminOrEditor, isAnonymous } from '@/lib/access'
-import type { CollectionConfig } from 'payload'
+import type { CollectionAfterChangeHook, CollectionConfig } from 'payload'
+
+const afterChangeHook: CollectionAfterChangeHook = async ({ doc, operation, req }) => {
+  //we only want to handle "create operations".
+  if (operation !== 'create') {
+    return
+  }
+
+  const { payload } = req
+
+  const { message, name, email, createdAt } = doc
+
+  payload.sendEmail({
+    from: `"${name}" <${email}>`, // sender address
+    to: 'payload@mikecabana.com', // list of receivers
+    subject: '👋🏻 Guestbook signed', // Subject line
+    text: `${createdAt} | ${name} | ${message}`, // plain text body
+  })
+}
 
 export const Guests: CollectionConfig = {
   slug: 'guests',
@@ -32,4 +50,7 @@ export const Guests: CollectionConfig = {
       defaultValue: false,
     },
   ],
+  hooks: {
+    afterChange: [afterChangeHook],
+  },
 }

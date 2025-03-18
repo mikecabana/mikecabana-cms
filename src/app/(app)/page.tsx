@@ -37,6 +37,7 @@ export default async function HomePage() {
 
         {/* Posts */}
         <section id="posts" className="grid grid-cols-2 gap-4 mb-12">
+          {posts.docs.length > 0 && <h2 className="text-3xl font-black mb-2">Latest Posts</h2>}
           {posts.docs.map((post, i) => (
             <a href={`/posts/${post.slug}`} key={i}>
               <CardAnimated gradientIndex={i}>
@@ -49,6 +50,7 @@ export default async function HomePage() {
 
         {/* Projects */}
         <section id="projects" className="mb-12">
+          <h2 className="text-3xl font-black mb-2">Projects</h2>
           <Projects />
         </section>
 

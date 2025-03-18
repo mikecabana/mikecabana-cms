@@ -5,12 +5,12 @@ import { Socials } from './socials'
 export function Hero() {
   return (
     <>
-      <div className="flex flex-col md:flex-row-reverse gap-8 mb-12 items-center">
-        <div className="flex-grow text-right">
+      <div className="flex flex-col-reverse md:flex-row-reverse gap-8 mb-12 items-center">
+        <div className="flex-grow text-center md:text-right">
           <SiteTitle />
           {/* <h1 className="font-bold text-4xl mb-6">Mike Cabana</h1> */}
           <p className="md:text-2xl font-bold opacity-90 mb-8">
-            Software developer, coffee lover, dog daddy, AI wrangler.
+            Code whisperer, espresso not depresso, dog daddy, AI wrangler.
           </p>
           <Socials />
         </div>
@@ -22,7 +22,7 @@ export function Hero() {
             sizes="138px, 138px"
             className="z-10 rounded-full"
           />
-          <svg
+          {/* <svg
             className="h-40 absolute -left-6 top-2"
             viewBox="0 0 188 123"
             xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@ export function Hero() {
               fillOpacity="0.1"
               className="fill-current"
             />
-          </svg>
+          </svg> */}
         </div>
       </div>
     </>
